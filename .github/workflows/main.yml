@@ -1,0 +1,36 @@
+name: Reusable CI
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        type: string
+      description:
+        type: string
+
+jobs:
+  toto:
+    runs-on: ubuntu-latest
+    environment: prd
+
+    steps:
+
+      - name: Run a one-line script
+        run: echo "name = ${{ inputs.name }}"
+
+  tutu:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Run a one-line script
+        run: echo "description = ${{ inputs.description }}"
+
+  tata:
+    needs: [toto,tutu]
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Run a one-line script
+        run: echo "Bybye, world !"
