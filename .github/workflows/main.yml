@@ -31,7 +31,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
+      - name: Checkout
+        uses: actions/checkout@v4
+        
       - name: Run a one-line script
         uses: mikefarah/yq@master
         with:
