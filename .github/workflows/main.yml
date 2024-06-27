@@ -39,4 +39,4 @@ jobs:
       - name: Run a one-line script
         uses: mikefarah/yq@master
         with:
-          cmd: ls -Rl $GITHUB_WORKSPACE
+          cmd: yq ".version" " ${{ github.workspace }}/sample.yml"
