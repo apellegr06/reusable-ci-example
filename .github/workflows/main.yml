@@ -8,8 +8,13 @@ on:
       description:
         type: string
 
+concurrency:
+  group: alain
+  cancel-in-progress: true
+  
 jobs:
   toto:
+    if: ( ${{ inputs.name }} == "alain" ) && ( ${{ inputs.description }} == "pellegrino" )
     runs-on: ubuntu-latest
     environment: prd
 
@@ -35,6 +40,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: apellegr06/reusable-ci-example
+
+      - name: sleep
+        run: sleep 120
         
       - name: Run a one-line script
         uses: mikefarah/yq@master
