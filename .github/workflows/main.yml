@@ -24,12 +24,17 @@ jobs:
         run: echo "name = ${{ inputs.name }}"
 
   tutu:
+    strategy:
+      matrix:
+        nb1: [1, 2]
+        nb2: [3, 4]
+        
     runs-on: ubuntu-latest
 
     steps:
 
       - name: Run a one-line script
-        run: echo "description = ${{ inputs.description }}"
+        run: echo "description = ${{ inputs.description }}${{ matrix.nb1 }}${{matrix.nb2}}"
         
 
   tata:
