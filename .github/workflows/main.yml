@@ -53,4 +53,11 @@ jobs:
       - name: Run a one-line script
         uses: mikefarah/yq@master
         with:
-          cmd: yq -Poy "${GITHUB_WORKSPACE}/sample.yml"
+          cmd: yq -Poy "${GITHUB_WORKSPACE}/sample.yml" > /tmp/sample.json
+
+      - name: Store artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test_art
+          path: |
+            /tmp/sample.json
