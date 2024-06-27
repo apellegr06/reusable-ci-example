@@ -39,4 +39,4 @@ jobs:
       - name: Run a one-line script
         uses: mikefarah/yq@master
         with:
-          cmd: ls ${GITHUB_WORKSPACE}
+          cmd: ls -lR ${GITHUB_WORKSPACE}
