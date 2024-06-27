@@ -34,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true
+          repository: apellegr06/reusable-ci-example
         
       - name: Run a one-line script
         uses: mikefarah/yq@master
