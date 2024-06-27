@@ -14,7 +14,7 @@ concurrency:
   
 jobs:
   toto:
-    if: ( ${{ inputs.name }} == "alain1" ) && ( ${{ inputs.description }} == "pellegrino" )
+    if: ${{ inputs.name == "alain1" && inputs.description == "pellegrino" }}
     runs-on: ubuntu-latest
     environment: prd
 
